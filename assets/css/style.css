@@ -38,3 +38,22 @@ button {
 .btn {
     display: none;
 }
+
+.post {
+    background-color: rgb(2, 100, 153);
+    width: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.post__wrapper {
+    display: flex;
+    text-align: center;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+h2 {
+    font-size: 1rem
+}

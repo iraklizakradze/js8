@@ -77,3 +77,39 @@ btnLoadPrev.addEventListener('click' , function() {
 })
 
 getUsersInfo(currentPage);
+
+// POST EXAMPLE //
+const divWrapper = document.getElementById('post-block');
+
+function ajax () {
+    const request = new XMLHttpRequest();
+    request.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    request.addEventListener('load', function() {
+        // console.log(this.responseText);
+        const textDataJS = JSON.parse(this.responseText);
+        console.log(textDataJS);
+
+        textDataJS.forEach(element => {
+            // console.log(element)
+            createPost(element);
+        })
+    })
+    request.send();
+}
+ajax();
+
+function createPost (item) {
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('post')
+
+    const h3Post = document.createElement('h3');
+    h3Post.innerText = item.title;
+
+    const h2Post = document.createElement('h2');
+    h2Post.innerText = item.id;
+
+    divContainer.appendChild(h2Post);
+    divContainer.appendChild(h3Post);
+
+    divWrapper.appendChild(divContainer);
+}
